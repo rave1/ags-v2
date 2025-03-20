@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import { ChevronRight, Mail, MapPin, Phone, Menu, X } from "lucide-react";
-import SvgComponent from "./components/Logo";
-import technika from "@/assets/technika.webp";
 import intro from "@/assets/intro.webp";
+import technika from "@/assets/technika.webp";
+import { Mail, MapPin, Menu, Phone, X } from "lucide-react";
+import type React from "react"; // @ts-ignore
+import { useState } from "react";
+import SvgComponent from "./components/Logo";
 
 const App: React.FC = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,11 +18,8 @@ const App: React.FC = () => {
 			<header className="bg-zinc-900 text-white border-b border-zinc-800">
 				<div className="container mx-auto px-4 py-4">
 					<div className="flex flex-col items-center justify-center">
-						{/* Logo Center Placement */}
 						<SvgComponent />
-						{/* Navigation and menu toggle below logo */}
 						<div className="flex justify-between items-center w-full">
-							{/* Mobile menu button */}
 							<button
 								className="md:hidden p-2"
 								onClick={toggleMenu}
@@ -29,8 +27,6 @@ const App: React.FC = () => {
 							>
 								{isMenuOpen ? <X size={24} /> : <Menu size={24} />}
 							</button>
-
-							{/* Desktop navigation */}
 							<nav className="hidden md:flex space-x-8 mx-auto">
 								<a
 									href="#about"
@@ -46,11 +42,9 @@ const App: React.FC = () => {
 								</a>
 							</nav>
 
-							<div className="md:hidden w-8"></div>
+							<div className="md:hidden w-8" />
 						</div>
 					</div>
-
-					{/* Mobile navigation */}
 					{isMenuOpen && (
 						<nav className="md:hidden pt-4 pb-2 flex flex-col space-y-4">
 							<a
@@ -69,8 +63,6 @@ const App: React.FC = () => {
 					)}
 				</div>
 			</header>
-
-			{/* Hero Section */}
 			<section
 				id="home"
 				className="bg-gradient-to-r from-blue-900 to-purple-900 text-white py-20"
@@ -86,7 +78,6 @@ const App: React.FC = () => {
 				</div>
 			</section>
 
-			{/* About Us Section */}
 			<section id="about" className="py-16 bg-zinc-900">
 				<div className="container mx-auto px-4">
 					<div className="grid md:grid-cols-2 gap-8 items-center">
