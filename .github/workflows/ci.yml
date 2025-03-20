@@ -39,5 +39,12 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: static-artifacts
-      - name: test
-        run: ls
+      - name: test ssh
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            ls -all
