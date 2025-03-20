@@ -31,3 +31,12 @@ jobs:
         with:
           name: static-artifacts
           path: dist
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: download static artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: static-artifacts
+      - name: test
+        run: echo hello
