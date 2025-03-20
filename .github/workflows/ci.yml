@@ -42,7 +42,7 @@ jobs:
       - name: test ssh
         uses: appleboy/ssh-action@v1
         with:
-          host: ${{ secrets.HOST }}
+          host: ${{ secrets.HOSTNAME }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
