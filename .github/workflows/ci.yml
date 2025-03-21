@@ -40,12 +40,13 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: static-artifacts
+          path: dist
       - name: test ssh
-        uses: appleboy/ssh-action@v1
+        uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.HOSTNAME }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
-          script: |
-            ls -all
+          source: dist/*
+          target: /home/${{ secrets.USERNAME }}/public_html
